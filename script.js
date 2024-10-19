@@ -1,6 +1,6 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
-
+const toastBox = document.getElementById('toast-box')
 function addTask(){
     if (inputBox.value === ''){
         alert('Add your Task');
@@ -17,6 +17,27 @@ function addTask(){
     saveData();
 
 };
+
+function showToast(){
+  if (inputBox.value === ''){
+    return;
+  };
+ 
+    let toast = document.createElement('div');
+    toast.classList.add('toast');
+    toast.innerHTML= ' Task Added';
+    toastBox.appendChild(toast);
+
+    setTimeout(()=>{
+        toast.remove()
+    }, 6000);
+}
+
+function btn(){
+    showToast();
+    addTask();
+}
+
 
 listContainer.addEventListener('click' ,function(e){
 if(e.target.tagName === 'LI'){
