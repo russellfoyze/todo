@@ -1,6 +1,16 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 const toastBox = document.getElementById('toast-box')
+const popup = document.getElementById('popup')
+
+function openpopup(){
+popup.classList.add('open-popup')
+}
+
+function closepopup(){
+    popup.classList.remove('open-popup')
+    }
+
 function addTask(){
     if (inputBox.value === ''){
         alert('Add your Task');
@@ -30,12 +40,14 @@ function showToast(){
 
     setTimeout(()=>{
         toast.remove()
-    }, 6000);
+    }, 60000);
 }
 
 function btn(){
     showToast();
     addTask();
+    ;
+    
 }
 
 
@@ -46,6 +58,7 @@ if(e.target.tagName === 'LI'){
 }
 else if(e.target.tagName === "SPAN"){
     e.target.parentElement.remove();
+    openpopup()
     saveData()
 }
 },false);
@@ -57,5 +70,7 @@ function saveData(){
 function showTask(){
     listContainer.innerHTML = localStorage.getItem("data")
 }
+
+
 
 showTask()
