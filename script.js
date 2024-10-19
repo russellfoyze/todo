@@ -40,7 +40,7 @@ function showToast(){
 
     setTimeout(()=>{
         toast.remove()
-    }, 60000);
+    }, 3000);
 }
 
 function btn(){
